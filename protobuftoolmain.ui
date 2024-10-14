@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProtobufToolMain</class>
+ <widget class="QMainWindow" name="ProtobufToolMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>955</width>
+    <height>745</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ProtobufToolMain</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton_encode">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>314</y>
+      <width>112</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>编码 (&lt;&lt;&lt;JSON)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>74</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Protobuf 编码后的HEX字符：</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_decode">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>244</y>
+      <width>112</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>解码 (&gt;&gt;&gt;JSON)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>74</y>
+      <width>241</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Protobuf 解码后的JSON字符：</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_left">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>94</y>
+      <width>383</width>
+      <height>480</height>
+     </rect>
+    </property>
+    <property name="plainText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_right">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>94</y>
+      <width>385</width>
+      <height>480</height>
+     </rect>
+    </property>
+    <property name="centerOnScroll">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_messageType">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>14</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>589</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>[提示信息]</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_openFile">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>14</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>加载proto文件</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>14</y>
+      <width>53</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>消息类型：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_filepath">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>29</y>
+      <width>385</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_clearLeft">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>450</y>
+      <width>52</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;-清空</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit_tips">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>610</y>
+      <width>915</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="plainText">
+     <string>编码结果以16进制HEX字符串显示，解码结果以JSON格式字符串显示。</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_clearRight">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>450</y>
+      <width>52</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>清空-&gt;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>955</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
