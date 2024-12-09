@@ -157,7 +157,7 @@ std::string PbTool::pb_encode(const std::string& filename, const std::string& cl
             //if (jnode.isMember("cmd (hex)")) {
             //    jnode.removeMember("cmd (hex)");
             //}
-            //str = JsonToString(jnode);
+            str = JsonToString(jnode);
         }
 
         if (!this->json_to_proto_message(str, msg)) {
