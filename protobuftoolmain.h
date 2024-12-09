@@ -22,7 +22,7 @@ private slots:
     void on_pushButton_decode_clicked(); // 解码
 
     void on_pushButton_openFile_clicked(); // 加载proto文件按钮
-    void load_proto_message_type();      // 加载proto消息类型
+    void load_proto_message_type();        // 加载proto消息类型
 
     void on_comboBox_messageType_currentIndexChanged(int index);
 
@@ -30,6 +30,8 @@ private slots:
 
     void on_pushButton_clearRight_clicked();
 
+    void on_pushButton_setting_clicked();
+    void receiveConfig(Config* cfg);
 
 protected:
     bool checkProtoFilePath();
@@ -37,11 +39,11 @@ protected:
 
 private:
     Ui::ProtobufToolMain *ui;
+
     PbTool *pb_tool;
     Config *m_config;
 
-
-    std::string m_protoFileName;  // 加载的proto文件名
     std::string m_protoClassName; // 加载的proto类名
+
 };
 #endif // PROTOBUFTOOLMAIN_H

@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         }
     }
     ProtobufToolMain w;
-    w.setWindowTitle(QStringLiteral("Protobuf 编解码工具 V1.1"));
+    w.setWindowTitle(QStringLiteral("Protobuf 编解码工具 V1.2"));
     w.show();
     return a.exec();
 }
