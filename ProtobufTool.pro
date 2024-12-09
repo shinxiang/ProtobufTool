@@ -12,15 +12,18 @@ SOURCES += \
     config.cpp \
     main.cpp \
     pb_tool.cpp \
-    protobuftoolmain.cpp
+    protobuftoolmain.cpp \
+    settingdialog.cpp
 
 HEADERS += \
     config.h \
     pb_tool.h \
-    protobuftoolmain.h
+    protobuftoolmain.h \
+    settingdialog.h
 
 FORMS += \
-    protobuftoolmain.ui
+    protobuftoolmain.ui \
+    settingdialog.ui
 
 TRANSLATIONS += \
     ProtobufTool_zh_CN.ts
@@ -34,9 +37,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RC_FILE=icon/logo.rc
 
-INCLUDEPATH += D:\software\protobuf-cpp-3.13.0\protobuf-3.13.0\src
-LIBS += -L D:\software\protobuf-cpp-3.13.0\build -lprotobuf
-
 include(json/json.pri)
 
 DISTFILES += \
@@ -44,3 +44,8 @@ DISTFILES += \
     icon/logo.rc \
     setting.ini \
     test.proto
+
+win32: LIBS += -L$$PWD/protobuf/lib/ -llibprotobuf.dll
+
+INCLUDEPATH += $$PWD/protobuf/include
+DEPENDPATH += $$PWD/protobuf/include

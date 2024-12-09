@@ -19,7 +19,7 @@ public:
 public:
     std::string pb_load_proto(const std::string& filename, std::vector<std::string>& out);
     std::string pb_encode(const std::string& filename, const std::string& classname, const std::string input, std::string& output);
-    std::string pb_decode(const std::string& filename, const std::string& classname, const std::string input, std::string& output);
+    std::string pb_decode(const std::string& filename, const std::string& classname, const std::string input, std::string& output, bool all_print=false);
     std::string pb_decode_empty(const std::string& filename, const std::string& classname, std::string& output);
 
     void custom_encode_json(Json::Value& jnode);
@@ -31,7 +31,8 @@ protected:
 
     std::string DynamicParseFromPBFile(const std::string& filename
         , const std::string& classname
-        , std::function<std::string(::google::protobuf::Message* msg)> cb);
+        , std::function<std::string(::google::protobuf::Message* msg)> cb
+        , bool all_print=false);
 
     std::string JsonToString(const Json::Value& json);
     bool StringToJson(const std::string& str, Json::Value& json);

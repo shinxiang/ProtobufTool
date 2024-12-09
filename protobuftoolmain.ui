@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>955</width>
-    <height>745</height>
+    <width>960</width>
+    <height>750</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ProtobufToolMain</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton_encode">
@@ -22,12 +31,12 @@
      <rect>
       <x>420</x>
       <y>314</y>
-      <width>112</width>
+      <width>118</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>编码 (&lt;&lt;&lt;JSON)</string>
+     <string>编码 &lt;&lt;&lt; JSON</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -48,18 +57,18 @@
      <rect>
       <x>420</x>
       <y>244</y>
-      <width>112</width>
+      <width>118</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>解码 (&gt;&gt;&gt;JSON)</string>
+     <string>解码 &gt;&gt;&gt; JSON</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>553</x>
       <y>74</y>
       <width>241</width>
       <height>16</height>
@@ -73,10 +82,13 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>94</y>
+      <y>100</y>
       <width>383</width>
       <height>480</height>
      </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="plainText">
      <string/>
@@ -85,8 +97,8 @@
    <widget class="QPlainTextEdit" name="plainTextEdit_right">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>94</y>
+      <x>553</x>
+      <y>100</y>
       <width>385</width>
       <height>480</height>
      </rect>
@@ -98,7 +110,7 @@
    <widget class="QComboBox" name="comboBox_messageType">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>82</x>
       <y>14</y>
       <width>321</width>
       <height>41</height>
@@ -112,8 +124,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>589</y>
-      <width>71</width>
+      <y>595</y>
+      <width>76</width>
       <height>21</height>
      </rect>
     </property>
@@ -126,7 +138,7 @@
      <rect>
       <x>420</x>
       <y>14</y>
-      <width>101</width>
+      <width>110</width>
       <height>41</height>
      </rect>
     </property>
@@ -137,9 +149,9 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>19</x>
       <y>14</y>
-      <width>53</width>
+      <width>60</width>
       <height>41</height>
      </rect>
     </property>
@@ -165,7 +177,7 @@
      <rect>
       <x>420</x>
       <y>450</y>
-      <width>52</width>
+      <width>55</width>
       <height>41</height>
      </rect>
     </property>
@@ -180,8 +192,8 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>610</y>
-      <width>915</width>
+      <y>620</y>
+      <width>918</width>
       <height>100</height>
      </rect>
     </property>
@@ -195,14 +207,27 @@
    <widget class="QPushButton" name="pushButton_clearRight">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>483</x>
       <y>450</y>
-      <width>52</width>
+      <width>55</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string>清空-&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_setting">
+    <property name="geometry">
+     <rect>
+      <x>858</x>
+      <y>66</y>
+      <width>80</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>设 置</string>
     </property>
    </widget>
   </widget>
@@ -212,8 +237,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>955</width>
-     <height>21</height>
+     <width>960</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

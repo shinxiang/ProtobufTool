@@ -45,7 +45,7 @@ std::string PbTool::pb_load_proto(const std::string& filename, std::vector<std::
     }
 
     if(file_descriptor->package() == "") {
-        return "[ERROR] 加载proto文件失败! 请确保已经指定了package包名。\n格式如下: \nsyntax = \"proto3\"; \n\npackage demo; \n....";
+        return "[ERROR] 加载proto文件失败! 请确保已经指定了package包名。\n格式如下: \nsyntax = \"proto3\"; \n\npackage demo; \n\n....";
     }
 
     for (int i = 0; i < file_descriptor->message_type_count(); ++i) {
@@ -154,10 +154,10 @@ std::string PbTool::pb_encode(const std::string& filename, const std::string& cl
             this->custom_encode_json(jnode);
 
             // 删除cmd转的十六进制字符串
-            if (jnode.isMember("cmd (hex)")) {
-                jnode.removeMember("cmd (hex)");
-            }
-            str = JsonToString(jnode);
+            //if (jnode.isMember("cmd (hex)")) {
+            //    jnode.removeMember("cmd (hex)");
+            //}
+            //str = JsonToString(jnode);
         }
 
         if (!this->json_to_proto_message(str, msg)) {
@@ -175,17 +175,17 @@ std::string PbTool::pb_encode(const std::string& filename, const std::string& cl
     return result;
 }
 
-std::string PbTool::pb_decode(const std::string& filename, const std::string& classname, const std::string input, std::string& output) {
+std::string PbTool::pb_decode(const std::string& filename, const std::string& classname, const std::string input, std::string& output, bool all_print) {
 
     int length = input.length();
     unsigned char *pb_data = new unsigned char[length];
     HexStrToByte(input.c_str(), pb_data, length);
 
     std::string result = DynamicParseFromPBFile(filename, classname,
-        [this, pb_data, length, &output](::google::protobuf::Message* msg) {
+        [this, pb_data, length, &output, all_print](::google::protobuf::Message* msg) {
         std::string str;
         if (msg->ParseFromArray(pb_data, length/2)) {
-            if (!this->proto_message_to_json(msg, str)) {
+            if (!this->proto_message_to_json(msg, str, all_print)) {
                 return "[ERROR] proto 转 json 数据失败，请检查数据是否正确！";
             }
 
@@ -194,12 +194,12 @@ std::string PbTool::pb_decode(const std::string& filename, const std::string& cl
                 this->custom_decode_json(jnode);
 
                 // 插入cmd转十六进制字符串
-                if (jnode.isMember("cmd")) {
-                    const Json::Value cmd = jnode["cmd"];
-                    if (cmd.isUInt() && cmd.asUInt() > 0) {
-                        jnode["cmd (hex)"] = this->DecstrToHexStr(cmd.asUInt());
-                    }
-                }
+                //if (jnode.isMember("cmd")) {
+                //    const Json::Value cmd = jnode["cmd"];
+                //    if (cmd.isUInt() && cmd.asUInt() > 0) {
+                //        jnode["cmd (hex)"] = this->DecstrToHexStr(cmd.asUInt());
+                //    }
+                //}
                 str = JsonToString(jnode);
             }
         } else {
@@ -208,7 +208,7 @@ std::string PbTool::pb_decode(const std::string& filename, const std::string& cl
 
         output = str;
         return "[INFO] 解码成功.";
-    });
+    }, all_print);
 
     delete []pb_data;
     return result;
@@ -236,7 +236,7 @@ std::string PbTool::pb_decode_empty(const std::string& filename, const std::stri
 
 std::string PbTool::DynamicParseFromPBFile(const std::string& filename
     , const std::string& classname
-    , std::function<std::string(::google::protobuf::Message* msg)> cb) {
+    , std::function<std::string(::google::protobuf::Message* msg)> cb, bool all_print) {
     //TODO 检查文件名是否合法
     auto pos = filename.find_last_of('/');
     std::string path;
